@@ -18,7 +18,7 @@ app.set('view engine', 'ejs');
 app.get('/', (req, res) => {
     //res.send('Hello, World!');
     res.render('index', {
-        title: ''
+        title: '', data: ['New York', 'Chicago', 'Boston', 'Los Angeles']
     });
 })
 
