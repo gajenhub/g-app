@@ -24,10 +24,21 @@ app.listen(port, () => {
     //console.log(`listening to port ${chalk.green(port)}`);
 
 
-    debug(`listening to port ${chalk.green(port)}`);
+    debug(`Listening to port ${chalk.green(port)}`);
     //only runs in debug mode, in production doesnot print in console.
     //$DEBUG=* node app.js
-    //logs wef traffic
+    //logs web traffic
 
 
 })
+
+
+/*
+Note:
+
+e.g. $npm start; $npm test; $npm run debug
+nodemon:        watch for changes and restart the app
+environment variables priorities:
+            -   package.json
+            -   .env file
+*/

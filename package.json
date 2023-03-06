@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node app.js"
+    "start": "DEBUG=app nodemon app.js",
+    "debug": "DEBUG=* nodemon app.js"
   },
   "author": "",
   "license": "ISC",
@@ -15,6 +16,14 @@
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
     "mongo": "^0.1.0",
-    "morgan": "^1.10.0"
+    "morgan": "^1.10.0",
+    "nodemon": "^2.0.21"
+  },
+  "nodemonConfig": {
+    "restartable": "rs",
+    "delay": 2500,
+    "env": {
+      "PORT": 5000
+    }
   }
 }
