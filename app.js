@@ -1,4 +1,7 @@
 const express = require('express');
+const chalk = require('chalk');
+//allow us to set some color on our messages..so we can group them together
+
 require('dotenv').config();
 const path = require('path');
 
@@ -14,5 +17,5 @@ app.get('/', (req, res) => {
 })
 
 app.listen(port, () => {
-    console.log(`listening to port ${port}`);
+    console.log(`listening to port ${chalk.green(port)}`);
 })
