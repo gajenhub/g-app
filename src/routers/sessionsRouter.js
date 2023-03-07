@@ -1,5 +1,4 @@
 const express = require('express');
-const sessionsRouter = express.Router();
 //const sessions = require('./src/data/sessions.json');
 const sessions = require('../data/sessions.json');
 
