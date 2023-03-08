@@ -6,7 +6,7 @@ const sessions = require('../data/sessions.json');
 const adminRouter = express.Router();
 
 adminRouter.route('/').get((req, res) => {
-    const uri = process.env.LOCAL_ACCESS_MONGODB_URI || HEROKU_MONGODB_URI;
+    const uri = process.env.LOCAL_ACCESS_MONGODB_URI;
 
     (async function mongo() {
         let client;

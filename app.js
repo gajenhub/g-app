@@ -7,9 +7,8 @@ const path = require('path');
 const port = process.env.PORT || 3000;
 
 const app = express();
-//const sessionsRouter = express.Router();
 const sessionsRouter = require('./src/routers/sessionsRouter');
-const adminRouter = require('./src/routers/sessionsRouter');
+const adminRouter = require('./src/routers/adminRouter');
 
 app.use(morgan('tiny'));
 //app.use(express.static(path.join(__dirname, '/public/')));
@@ -17,7 +16,7 @@ app.use(morgan('tiny'));
 app.set('views', './src/views');
 app.set('view engine', 'ejs');
 app.use('/sessions', sessionsRouter);    //sessions --> sessionRouter (contains all code to deal with sessions route)
-app.use('/sessions', adminRouter);
+app.use('/admin', adminRouter);
 
 
 app.get('/', (req, res) => {

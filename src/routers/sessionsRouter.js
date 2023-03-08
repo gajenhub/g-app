@@ -1,6 +1,7 @@
 const express = require('express');
 //const sessions = require('./src/data/sessions.json');
 const sessions = require('../data/sessions.json');
+const sessionsRouter = express.Router();
 
 sessionsRouter.route('/').get((req, res) => {
     //res.send('hello from sessions');
