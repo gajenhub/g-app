@@ -4,6 +4,11 @@ const debug = require('debug')('app');
 const morgan = require('morgan');   //logs web traffic
 require('dotenv').config();
 const path = require('path');
+const passport = require('passport');
+const cookieParser = require('cookie-parser');
+const session = require('express-session');
+
+
 const port = process.env.PORT || 3000;
 
 const app = express();
@@ -17,6 +22,14 @@ app.use(morgan('tiny'));
 //app.use(express.static(path.join(__dirname, '/public/')));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
+app.use(cookieParser());
+app.use(session({
+    secret: 'g-app',
+    saveUninitialized: true,
+    resave: false
+}));  //session needs a secret..
+
+require('./src/config/passport.js')(app);
 
 app.set('views', './src/views');
 app.set('view engine', 'ejs');
