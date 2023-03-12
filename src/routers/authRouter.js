@@ -20,14 +20,18 @@ authRouter.route('/signup').get((req, res) => {
 
                 const db = client.db("mydb");
                 const user = { username, password };
+                //const user = await User.findOne({ username: req.body.username });
+                const db_user = await db.collection('users').findOne({ username: req.body.username });
+
+                console.log(db_user);
+                //check if user already exists.
+                if (db_user) return res.status(400).send("User already exists");
+
                 const results = await db.collection('users').insertOne(user);
                 debug(results);
 
 
-                const db_user = await db.collection('users').findOne(
-                    { _id: new ObjectId(results.insertedId.toString()) });
 
-                console.log(db_user);
                 // res.render('users', {
                 //     db_user,
                 // });
