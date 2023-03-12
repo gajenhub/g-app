@@ -3,6 +3,13 @@ const debug = require('debug')('app:sessionRouter');
 const { MongoClient, ObjectId } = require('mongodb');
 
 const sessionsRouter = express.Router();
+sessionsRouter.use((req, res, next) => {
+    if (req.user) {
+        next();
+    } else {
+        res.redirect('/auth/signin');
+    }
+})
 
 sessionsRouter.route('/').get((req, res) => {
     const uri = process.env.LOCAL_ACCESS_MONGODB_URI || process.env.HEROKU_MONGODB_URI;

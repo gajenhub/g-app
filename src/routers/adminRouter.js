@@ -29,9 +29,7 @@ adminRouter.route('/').get((req, res) => {
 
             //insert data
             const result = await db.collection("sessions").insertMany(sessions);
-            console.log(`${result.insertedCount} document inserted.`);
-            console.log(result.insertedIds);
-            console.log(1);
+
 
             //const insertIds = result.insertedIds;
             //console.log(insertIds);
